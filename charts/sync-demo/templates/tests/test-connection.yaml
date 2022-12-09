@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sync-demo.fullname" . }}-test-connection"
+  labels:
+    {{- include "sync-demo.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "sync-demo.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
