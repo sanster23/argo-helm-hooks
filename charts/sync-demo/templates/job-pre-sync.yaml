@@ -12,7 +12,7 @@ spec:
       - name: schema-migration
         image: curlimages/curl
         command:
-          - "do-not-sleep"
-          - "10"
+          - "sleep"
+          - "30"
       restartPolicy: Never
   backoffLimit: 2
