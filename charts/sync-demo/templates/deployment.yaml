@@ -38,6 +38,8 @@ spec:
               value: {{ .Values.appsVals.username }}
             - name: USER_PASS
               value: {{ .Values.appsVals.password }}
+            - name: USER_EMAIL
+              value: {{ .Values.appsVals.email }}
           ports:
             - name: http
               containerPort: 80
